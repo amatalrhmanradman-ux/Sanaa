@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oud Prestige — Parfums, Bakhour & Maison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--gold:#F0A500;--gold2:#FFD166;--gold3:#FFF0B3;
+--purple:#7B2FBE;--purple2:#A855F7;--purple3:#E9D5FF;
+--teal:#0D9488;--teal2:#2DD4BF;--teal3:#CCFBF1;
+--rose:#E11D48;--rose2:#FB7185;--rose3:#FFE4E6;
+--indigo:#4338CA;--indigo2:#818CF8;--indigo3:#E0E7FF;
+--amber:#D97706;--amber2:#FCD34D;
+--dark:#0F0A1E;--dark2:#1A1235;--dark3:#231845;
+--cream:#FDF6E3;--text-light:#C4B5FD;--text-muted:#9CA3AF;
+}
+body{background:var(--dark);color:var(--cream);font-family:'Jost',sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--dark2)}
+::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(15,10,30,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(168,85,247,0.25);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:3px;background:linear-gradient(90deg,var(--gold),var(--rose2),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;font-weight:700}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:300;transition:color 0.2s;padding:4px 0;border-bottom:1px solid transparent}
+.nav-links a:hover{color:var(--gold2);border-bottom-color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+.btn-cart{background:linear-gradient(135deg,var(--purple),var(--rose));color:#fff;border:none;padding:10px 24px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;border-radius:25px;font-weight:500;transition:opacity 0.2s;position:relative}
+.btn-cart:hover{opacity:0.85}
+.cart-badge{position:absolute;top:-6px;right:-6px;background:var(--gold);color:var(--dark);font-size:10px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+/* HERO */
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;background:radial-gradient(ellipse 70% 60% at 20% 50%,rgba(123,47,190,0.35) 0%,transparent 50%),radial-gradient(ellipse 60% 50% at 80% 30%,rgba(225,29,72,0.25) 0%,transparent 50%),radial-gradient(ellipse 50% 40% at 50% 80%,rgba(13,148,136,0.2) 0%,transparent 50%),var(--dark);position:relative;overflow:hidden}
+.hero-orb1{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,0.15),transparent 70%);top:-150px;left:-150px;pointer-events:none;animation:pulse 6s ease-in-out infinite}
+.hero-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(240,165,0,0.12),transparent 70%);bottom:-100px;right:-100px;pointer-events:none;animation:pulse 8s ease-in-out infinite reverse}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.15);opacity:1}}
+.hero-badge{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold2);border:1px solid rgba(240,165,0,0.4);padding:8px 24px;display:inline-flex;align-items:center;gap:8px;margin-bottom:2rem;border-radius:30px;background:rgba(240,165,0,0.08)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;color:#fff}
+.hero h1 .c1{color:var(--gold2)}
+.hero h1 .c2{font-style:italic;color:var(--rose2)}
+.hero h1 .c3{color:var(--teal2)}
+.hero p{font-size:16px;color:var(--text-light);font-weight:300;max-width:560px;margin:0 auto 2.5rem;line-height:1.9}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-hero1{background:linear-gradient(135deg,var(--gold),var(--rose));color:#fff;border:none;padding:16px 42px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:30px;font-weight:500;transition:transform 0.2s,opacity 0.2s}
+.btn-hero1:hover{transform:scale(1.04);opacity:0.92}
+.btn-hero2{background:transparent;color:var(--text-light);border:1px solid rgba(196,181,253,0.35);padding:16px 34px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:30px;transition:all 0.2s}
+.btn-hero2:hover{border-color:var(--purple2);color:var(--purple3)}
+.hero-stats{display:flex;gap:4rem;margin-top:4.5rem;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;display:block}
+.stat-num.s1{color:var(--gold2)}
+.stat-num.s2{color:var(--rose2)}
+.stat-num.s3{color:var(--teal2)}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:4px;display:block}
+
+/* SECTIONS */
+.section{padding:5rem 2.5rem;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);display:block;margin-bottom:1rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,3rem);font-weight:700;color:#fff}
+
+/* CATEGORIES */
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cat-card{position:relative;border:1px solid transparent;padding:2.5rem 2rem;cursor:pointer;transition:all 0.3s;overflow:hidden;border-radius:20px}
+.cat-card.c-parfum{background:linear-gradient(145deg,rgba(123,47,190,0.28),rgba(67,56,202,0.18));border-color:rgba(168,85,247,0.35)}
+.cat-card.c-bakhour{background:linear-gradient(145deg,rgba(240,165,0,0.22),rgba(217,119,6,0.12));border-color:rgba(240,165,0,0.35)}
+.cat-card.c-maison{background:linear-gradient(145deg,rgba(13,148,136,0.22),rgba(45,212,191,0.12));border-color:rgba(45,212,191,0.35)}
+.cat-card:hover{transform:translateY(-5px);filter:brightness(1.18)}
+.cat-icon{font-size:3.5rem;margin-bottom:1.5rem;display:block}
+.cat-card h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:0.6rem}
+.cat-card.c-parfum h3{color:var(--purple3)}
+.cat-card.c-bakhour h3{color:var(--gold3)}
+.cat-card.c-maison h3{color:var(--teal3)}
+.cat-card p{font-size:13px;color:var(--text-muted);line-height:1.7;font-weight:300}
+.cat-count{position:absolute;top:1.5rem;right:1.5rem;font-size:11px;letter-spacing:1px;padding:4px 12px;border-radius:20px}
+.cat-card.c-parfum .cat-count{background:rgba(168,85,247,0.2);color:var(--purple2)}
+.cat-card.c-bakhour .cat-count{background:rgba(240,165,0,0.2);color:var(--gold2)}
+.cat-card.c-maison .cat-count{background:rgba(45,212,191,0.2);color:var(--teal2)}
+
+/* FILTER */
+.filter-bar{display:flex;gap:0.75rem;margin-bottom:2.5rem;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:12px;color:var(--text-muted);letter-spacing:1px;margin-right:0.25rem}
+.filter-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--text-muted);padding:9px 22px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;border-radius:25px}
+.filter-btn:hover{border-color:var(--purple2);color:var(--purple3);background:rgba(168,85,247,0.1)}
+.filter-btn.active{background:linear-gradient(135deg,var(--purple),var(--indigo));border-color:transparent;color:#fff}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.product-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.08);overflow:hidden;transition:all 0.3s;cursor:pointer;border-radius:18px}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(168,85,247,0.45);box-shadow:0 16px 50px rgba(123,47,190,0.3)}
+.product-img{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.bg1{background:linear-gradient(145deg,rgba(123,47,190,0.35),rgba(225,29,72,0.25))}
+.bg2{background:linear-gradient(145deg,rgba(240,165,0,0.3),rgba(217,119,6,0.2))}
+.bg3{background:linear-gradient(145deg,rgba(13,148,136,0.28),rgba(67,56,202,0.22))}
+.bg4{background:linear-gradient(145deg,rgba(225,29,72,0.28),rgba(240,165,0,0.22))}
+.product-emoji{font-size:4.5rem;transition:transform 0.3s;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.45))}
+.product-card:hover .product-emoji{transform:scale(1.13) rotate(-4deg)}
+.product-badge{position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:1.5px;padding:5px 13px;font-weight:600;text-transform:uppercase;border-radius:20px}
+.badge-best{background:linear-gradient(90deg,var(--gold),var(--amber));color:var(--dark)}
+.badge-new{background:linear-gradient(90deg,var(--teal),var(--teal2));color:#fff}
+.badge-promo{background:linear-gradient(90deg,var(--rose),var(--rose2));color:#fff}
+.badge-rare{background:linear-gradient(90deg,var(--purple),var(--purple2));color:#fff}
+.badge-premium{background:linear-gradient(90deg,var(--indigo),var(--indigo2));color:#fff}
+.product-info{padding:1.3rem}
+.product-origin{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px}
+.product-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:0.4rem;line-height:1.3}
+.product-desc{font-size:12px;color:var(--text-muted);line-height:1.6;font-weight:300;margin-bottom:1rem}
+.product-footer{display:flex;align-items:center;justify-content:space-between}
+.product-price{font-family:'Playfair Display',serif;font-size:21px;color:var(--gold2)}
+.product-price span{font-size:12px;font-family:'Jost',sans-serif;color:var(--text-muted);text-decoration:line-through;margin-left:6px}
+.btn-add{background:linear-gradient(135deg,var(--purple),var(--rose));color:#fff;border:none;padding:9px 19px;font-size:11px;letter-spacing:1px;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.2s;text-transform:uppercase;border-radius:20px;font-weight:500}
+.btn-add:hover{opacity:0.85;transform:scale(1.05)}
+
+/* BANNER */
+.banner{background:linear-gradient(135deg,var(--dark2) 0%,rgba(123,47,190,0.18) 50%,var(--dark2) 100%);border-top:1px solid rgba(168,85,247,0.2);border-bottom:1px solid rgba(240,165,0,0.2);padding:5rem 2.5rem;text-align:center;margin:1rem 0;position:relative;overflow:hidden}
+.banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple2),var(--gold2),var(--teal2),transparent)}
+.banner::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal2),var(--rose2),var(--purple2),transparent)}
+.banner h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;margin-bottom:1rem}
+.banner h2 span{color:var(--gold2)}
+.banner p{color:var(--text-light);font-weight:300;font-size:15px;margin-bottom:2rem}
+.banner-features{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
+.feature{text-align:center;padding:1.2rem 1.8rem;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);min-width:130px;transition:all 0.2s}
+.feature:hover{border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.06)}
+.feature-icon{font-size:2rem;margin-bottom:0.6rem}
+.feature-text{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted)}
+
+/* NEWSLETTER */
+.newsletter{background:var(--dark3);padding:5rem 2.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.newsletter h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;margin-bottom:0.75rem}
+.newsletter p{color:var(--text-light);font-size:14px;margin-bottom:2rem;font-weight:300}
+.newsletter-form{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto}
+.newsletter-form input{flex:1;min-width:200px;padding:14px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(168,85,247,0.3);color:#fff;font-family:'Jost',sans-serif;font-size:14px;border-radius:25px;outline:none;transition:border-color 0.2s}
+.newsletter-form input::placeholder{color:var(--text-muted)}
+.newsletter-form input:focus{border-color:var(--purple2)}
+.newsletter-form button{background:linear-gradient(135deg,var(--gold),var(--rose));color:#fff;border:none;padding:14px 28px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:25px;font-weight:500;transition:opacity 0.2s;white-space:nowrap}
+.newsletter-form button:hover{opacity:0.88}
+
+/* FOOTER */
+footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,0.06);padding:4rem 2.5rem 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto 3rem}
+.footer-brand .footer-logo{font-family:'Playfair Display',serif;font-size:26px;letter-spacing:4px;font-weight:700;margin-bottom:1rem;background:linear-gradient(90deg,var(--gold2),var(--rose2),var(--purple2),var(--teal2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.8;font-weight:300;max-width:260px}
+.footer-col h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:1.2rem;font-weight:500}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:0.6rem}
+.footer-col ul li a{font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;font-weight:300}
+.footer-col ul li a:hover{color:var(--gold2)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:2rem;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
+.footer-copy{font-size:12px;color:var(--text-muted);opacity:0.6}
+.footer-socials{display:flex;gap:0.75rem}
+.social-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.social-btn:hover{background:rgba(168,85,247,0.2);border-color:rgba(168,85,247,0.4)}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:linear-gradient(135deg,var(--purple),var(--indigo));color:#fff;padding:1rem 1.5rem;font-size:13px;z-index:9999;transform:translateX(130%);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);border-radius:14px;display:flex;align-items:center;gap:10px;max-width:320px;box-shadow:0 10px 40px rgba(123,47,190,0.55)}
+.toast.show{transform:translateX(0)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:500;display:none;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--dark2);border:1px solid rgba(168,85,247,0.35);max-width:620px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative;border-radius:24px;box-shadow:0 24px 80px rgba(123,47,190,0.5)}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.07);border:none;color:var(--text-muted);font-size:16px;cursor:pointer;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.modal-close:hover{background:rgba(225,29,72,0.2);color:var(--rose2)}
+.modal-img{height:260px;display:flex;align-items:center;justify-content:center;font-size:7rem;margin-bottom:2rem;border-radius:16px}
+.modal-origin{font-size:11px;letter-spacing:3px;color:var(--gold2);text-transform:uppercase;margin-bottom:0.5rem}
+.modal-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:1rem}
+.modal-desc{font-size:14px;color:var(--text-light);line-height:1.85;font-weight:300;margin-bottom:1.5rem}
+.modal-notes{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.note-tag{padding:6px 16px;font-size:11px;letter-spacing:1px;border-radius:20px}
+.note-tag:nth-child(4n+1){background:rgba(168,85,247,0.15);color:var(--purple3);border:1px solid rgba(168,85,247,0.3)}
+.note-tag:nth-child(4n+2){background:rgba(240,165,0,0.15);color:var(--gold3);border:1px solid rgba(240,165,0,0.3)}
+.note-tag:nth-child(4n+3){background:rgba(45,212,191,0.12);color:var(--teal3);border:1px solid rgba(45,212,191,0.25)}
+.note-tag:nth-child(4n){background:rgba(251,113,133,0.12);color:var(--rose3);border:1px solid rgba(251,113,133,0.25)}
+.modal-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;gap:1rem;flex-wrap:wrap}
+.modal-price{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold2);font-weight:700}
+.btn-modal-add{background:linear-gradient(135deg,var(--gold),var(--rose));color:#fff;border:none;padding:15px 36px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:30px;transition:opacity 0.2s}
+.btn-modal-add:hover{opacity:0.88}
+
+/* CART PANEL */
+.cart-panel{position:fixed;top:0;right:0;height:100vh;width:400px;background:var(--dark2);border-left:1px solid rgba(168,85,247,0.2);z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);padding:2rem;overflow-y:auto;display:flex;flex-direction:column}
+.cart-panel.open{transform:translateX(0)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.cart-title{font-family:'Playfair Display',serif;font-size:24px;color:#fff;font-weight:700}
+.btn-close-cart{background:rgba(255,255,255,0.06);border:none;color:var(--text-muted);font-size:16px;cursor:pointer;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.btn-close-cart:hover{background:rgba(225,29,72,0.15);color:var(--rose2)}
+.cart-items{flex:1}
+.cart-item{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center}
+.cart-item-img{width:64px;height:64px;background:linear-gradient(135deg,rgba(123,47,190,0.35),rgba(225,29,72,0.2));display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;border-radius:12px}
+.cart-item-info{flex:1}
+.cart-item-name{font-family:'Playfair Display',serif;font-size:14px;color:#fff;margin-bottom:4px;font-weight:700}
+.cart-item-price{font-size:13px;color:var(--gold2)}
+.cart-item-remove{background:none;border:none;color:var(--text-muted);cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.2s;flex-shrink:0}
+.cart-item-remove:hover{color:var(--rose2);background:rgba(225,29,72,0.12)}
+.cart-empty{text-align:center;padding:4rem 0;color:var(--text-muted);font-size:14px}
+.cart-empty-icon{font-size:3.5rem;display:block;margin-bottom:1rem;opacity:0.35}
+.cart-total-row{padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.08);margin-top:auto}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.cart-total-label{font-size:13px;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase}
+.cart-total-price{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold2);font-weight:700}
+.btn-checkout{background:linear-gradient(135deg,var(--gold),var(--rose));color:#fff;border:none;width:100%;padding:16px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:30px;margin-bottom:0.75rem;transition:opacity 0.2s}
+.btn-checkout:hover{opacity:0.88}
+.btn-continue{background:rgba(255,255,255,0.04);color:var(--text-muted);border:1px solid rgba(255,255,255,0.1);width:100%;padding:13px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;border-radius:25px}
+.btn-continue:hover{color:var(--purple3);border-color:rgba(168,85,247,0.35)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;display:none;backdrop-filter:blur(4px)}
+.overlay.open{display:block}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .categories{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .nav-links{display:none}
+  .categories{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+  .cart-panel{width:100%}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:1rem;text-align:center}
+  .section{padding:3.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">✦ OUD PRESTIGE ✦</div>
+  <ul class="nav-links">
+    <li><a href="#parfums" onclick="setFilter('parfums',event)">Parfums</a></li>
+    <li><a href="#bakhour" onclick="setFilter('bakhour',event)">Bakhour</a></li>
+    <li><a href="#maison" onclick="setFilter('maison',event)">Maison</a></li>
+    <li><a href="#collections">Collections</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-cart" onclick="toggleCart()">
+      🛒 Panier <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div style="position:relative;z-index:1">
+    <div class="hero-badge">✨ La Maison des Senteurs Orientales ✨</div>
+    <h1>L'Art du<br><span class="c1">Parfum</span> <span class="c2">Oriental</span><br>&amp; du <span class="c3">Bakhour</span></h1>
+    <p>Des essences rares venues d'Orient — oud précieux, musc divin, bakhour et parfums d'intérieur, distillés avec passion pour vos sens.</p>
+    <div class="hero-btns">
+      <button class="btn-hero1" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">✨ Découvrir la Collection</button>
+      <button class="btn-hero2" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">Explorer par catégorie →</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num s1">300+</span><span class="stat-label">Références</span></div>
+      <div class="stat"><span class="stat-num s2">47</span><span class="stat-label">Pays Livrés</span></div>
+      <div class="stat"><span class="stat-num s3">12 000+</span><span class="stat-label">Clients Satisfaits</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="section" id="categories">
+  <div class="section-header">
+    <span class="section-tag">✦ Nos Univers</span>
+    <h2 class="section-title">Trois Mondes de Senteurs</h2>
+  </div>
+  <div class="categories">
+    <div class="cat-card c-parfum" onclick="setFilter('parfums')">
+      <span class="cat-count">87 produits</span>
+      <span class="cat-icon">🫙</span>
+      <h3>Parfums &amp; Attars</h3>
+      <p>Huiles de parfum et eaux de parfum aux compositions orientales profondes — oud, rose de Taëf, musc blanc.</p>
+    </div>
+    <div class="cat-card c-bakhour" onclick="setFilter('bakhour')">
+      <span class="cat-count">120 produits</span>
+      <span class="cat-icon">🪔</span>
+      <h3>Bakhour &amp; Encens</h3>
+      <p>Copeaux de bois précieux, pastilles fumigènes et mélanges d'encens pour la purification et la méditation.</p>
+    </div>
+    <div class="cat-card c-maison" onclick="setFilter('maison')">
+      <span class="cat-count">95 produits</span>
+      <span class="cat-icon">🏡</span>
+      <h3>Parfums de Maison</h3>
+      <p>Diffuseurs, bougies, sprays d'ambiance et sachets parfumés pour envelopper votre intérieur d'élégance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section" id="collections">
+  <div class="section-header">
+    <span class="section-tag">✦ Sélection du Moment</span>
+    <h2 class="section-title">Nos Produits Emblématiques</h2>
+  </div>
+  <div class="filter-bar">
+    <span class="filter-label">Filtrer :</span>
+    <button class="filter-btn active" onclick="setFilter('tous',event)">Tous</button>
+    <button class="filter-btn" onclick="setFilter('parfums',event)">🫙 Parfums</button>
+    <button class="filter-btn" onclick="setFilter('bakhour',event)">🪔 Bakhour</button>
+    <button class="filter-btn" onclick="setFilter('maison',event)">🏡 Maison</button>
+    <button class="filter-btn" onclick="setFilter('promo',event)">🔥 Promotions</button>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <h2>Livraison Internationale <span>Offerte</span></h2>
+  <p>Dès 80 € d'achat — vers plus de 47 pays dans le monde entier</p>
+  <div class="banner-features">
+    <div class="feature"><div class="feature-icon">🚚</div><div class="feature-text">Livraison Express</div></div>
+    <div class="feature"><div class="feature-icon">🔒</div><div class="feature-text">Paiement Sécurisé</div></div>
+    <div class="feature"><div class="feature-icon">↩️</div><div class="feature-text">Retour 30 Jours</div></div>
+    <div class="feature"><div class="feature-icon">🎁</div><div class="feature-text">Emballage Cadeau</div></div>
+    <div class="feature"><div class="feature-icon">⭐</div><div class="feature-text">Qualité Garantie</div></div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>Restez Inspiré(e)</h2>
+  <p>Recevez nos nouvelles collections, offres exclusives et secrets de parfumeur</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Votre adresse e-mail...">
+    <button onclick="showToast('✅ Merci ! Vous êtes inscrit(e) à notre newsletter.')">S'inscrire</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">OUD PRESTIGE</div>
+      <p>Votre destination pour les parfums orientaux d'exception. Nous sélectionnons les meilleures essences d'Orient pour vous offrir une expérience olfactive unique.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="#">Parfums &amp; Attars</a></li>
+        <li><a href="#">Bakhour &amp; Encens</a></li>
+        <li><a href="#">Parfums de Maison</a></li>
+        <li><a href="#">Coffrets Cadeaux</a></li>
+        <li><a href="#">Nouveautés</a></li>
+        <li><a href="#">Promotions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Aide</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Livraison</a></li>
+        <li><a href="#">Retours</a></li>
+        <li><a href="#">Suivi de commande</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>À Propos</h4>
+      <ul>
+        <li><a href="#">Notre Histoire</a></li>
+        <li><a href="#">Nos Ingrédients</a></li>
+        <li><a href="#">Blog Olfactif</a></li>
+        <li><a href="#">Conditions</a></li>
+        <li><a href="#">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Oud Prestige — Tous droits réservés</div>
+    <div class="footer-socials">
+      <a class="social-btn" href="#">📘</a>
+      <a class="social-btn" href="#">📸</a>
+      <a class="social-btn" href="#">▶️</a>
+      <a class="social-btn" href="#">🐦</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL PRODUIT -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+    <div class="modal-img" id="modalImg"></div>
+    <div class="modal-origin" id="modalOrigin"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+    <div class="modal-notes" id="modalNotes"></div>
+    <div class="modal-footer">
+      <div class="modal-price" id="modalPrice"></div>
+      <button class="btn-modal-add" id="modalBtn">🛒 Ajouter au Panier</button>
+    </div>
+  </div>
+</div>
+
+<!-- PANIER -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <div class="cart-title">🛒 Mon Panier</div>
+    <button class="btn-close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-total-row" id="cartTotalRow" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotalPrice">0 €</span>
+    </div>
+    <button class="btn-checkout" onclick="showToast('✅ Redirection vers le paiement sécurisé...')">✨ Commander Maintenant</button>
+    <button class="btn-continue" onclick="toggleCart()">← Continuer les Achats</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
+
+<script>
+const bgs = ['bg1','bg2','bg3','bg4'];
+
+const products = [
+  {id:1, name:'Oud Noir Royal', origin:'Cambodge', category:'parfums', emoji:'🫙', desc:'Un oud d\'exception aux notes boisées profondes, sublimé par des accents de cuir fumé et de rose noire. Une fragrance de prestige pour les connaisseurs.', notes:['Oud','Rose Noire','Cuir','Ambre'], price:89, oldPrice:120, badge:'Bestseller', badgeClass:'badge-best'},
+  {id:2, name:'Musc Al Haramain', origin:'Arabie Saoudite', category:'parfums', emoji:'⚗️', desc:'Un musc blanc pur d\'une douceur envoûtante, idéal pour les peaux qui désirent une signature intime et apaisante.', notes:['Musc','Vanille','Santal','Jasmin'], price:65, badge:'New', badgeClass:'badge-new'},
+  {id:3, name:'Bakhour Al Oud', origin:'Dubaï', category:'bakhour', emoji:'🪔', desc:'Copeaux de bois oud imbibés d\'huiles précieuses. Une fumée enveloppante qui purifie et parfume l\'espace durablement.', notes:['Bois d\'Oud','Cannelle','Musc','Miel'], price:38, oldPrice:55, badge:'Promo', badgeClass:'badge-promo'},
+  {id:4, name:'Rose de Taëf', origin:'Arabie Saoudite', category:'parfums', emoji:'🌹', desc:'L\'essence la plus précieuse du monde — la rose de Taëf, distillée à l\'aube pour capturer toute sa quintessence florale.', notes:['Rose','Géranium','Oud','Safran'], price:135, badge:'Rare', badgeClass:'badge-rare'},
+  {id:5, name:'Diffuseur Orient Luxury', origin:'Maroc', category:'maison', emoji:'🏺', desc:'Diffuseur en céramique artisanale avec huile parfumée au jasmin et à la fleur d\'oranger pour sublimer votre intérieur.', notes:['Jasmin','Oranger','Bois de Cèdre'], price:55, oldPrice:75, badge:'Promo', badgeClass:'badge-promo'},
+  {id:6, name:'Encens Mabsoos Oman', origin:'Oman', category:'bakhour', emoji:'🌿', desc:'Pastilles d\'encens naturel aux mélanges ancestraux d\'Oman, brûlées dans un brûle-encens traditionnel pour purifier et parfumer.', notes:['Résine','Bois Sacré','Épices','Zeste'], price:28, badge:'New', badgeClass:'badge-new'},
+  {id:7, name:'Bougie Oud & Safran', origin:'France', category:'maison', emoji:'🕯️', desc:'Bougie de luxe au mélange unique d\'oud et de safran, coulée à la main dans un pot en verre doré. Durée de combustion : 60h.', notes:['Oud','Safran','Cardamome','Patchouli'], price:48, oldPrice:65, badge:'Bestseller', badgeClass:'badge-best'},
+  {id:8, name:'Attar Rose Oud', origin:'Égypte', category:'parfums', emoji:'💎', desc:'Un attar traditionnel sans alcool alliant la rose égyptienne et l\'oud noir dans une harmonie parfaite et envoûtante.', notes:['Rose','Oud','Ambergris','Zibeth'], price:99, badge:'Premium', badgeClass:'badge-premium'},
+  {id:9, name:'Spray Ambiance Royal', origin:'Dubaï', category:'maison', emoji:'✨', desc:'Spray d\'ambiance à base d\'oud et de musc, idéal pour parfumer rideaux, canapés et textiles. Longue durée de tenue.', notes:['Oud','Musc','Ambre','Cèdre'], price:32, oldPrice:45, badge:'Promo', badgeClass:'badge-promo'},
+  {id:10, name:'Bakhour Malaki', origin:'Arabie Saoudite', category:'bakhour', emoji:'🪵', desc:'Le bakhour des rois — un mélange royal de copeaux d\'oud d\'Arabie, de résines précieuses et d\'huiles essentielles rares.', notes:['Oud Royal','Résine','Musc','Cannelle'], price:75, badge:'Premium', badgeClass:'badge-premium'},
+  {id:11, name:'Coffret Découverte', origin:'Multi-origines', category:'parfums', emoji:'🎁', desc:'Coffret de 5 miniatures — parfait pour découvrir nos meilleures créations ou offrir en cadeau. Emballage luxueux inclus.', notes:['Oud','Musc','Rose','Ambre','Santal'], price:55, badge:'New', badgeClass:'badge-new'},
+  {id:12, name:'Sachet Bakhour Nuit', origin:'Maroc', category:'maison', emoji:'🌙', desc:'Sachets parfumés aux notes nocturnes — bois de oud, benjoin et patchouli — à glisser dans vos placards ou tiroirs.', notes:['Benjoin','Patchouli','Oud','Vanille'], price:18, oldPrice:26, badge:'Promo', badgeClass:'badge-promo'},
+];
+
+let cart = [];
+
+function renderProducts(filter) {
+  const grid = document.getElementById('productsGrid');
+  const filtered = filter === 'tous' ? products
+    : filter === 'promo' ? products.filter(p => p.oldPrice)
+    : products.filter(p => p.category === filter);
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      <div class="product-img ${bgs[i % 4]}">
+        <span class="product-emoji">${p.emoji}</span>
+        ${p.badge ? `<span class="product-badge ${p.badgeClass}">${p.badge}</span>` : ''}
+      </div>
+      <div class="product-info">
+        <div class="product-origin">✦ ${p.origin}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc.substring(0, 82)}...</div>
+        <div class="product-footer">
+          <div class="product-price">${p.price} €${p.oldPrice ? `<span>${p.oldPrice} €</span>` : ''}</div>
+          <button class="btn-add" onclick="event.stopPropagation(); addToCart(${p.id})">+ Ajouter</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function setFilter(f, e) {
+  if (e) e.preventDefault();
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.target.classList.contains('filter-btn')) e.target.classList.add('active');
+  renderProducts(f);
+  document.getElementById('collections').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  const bi = products.indexOf(p) % 4;
+  const mi = document.getElementById('modalImg');
+  mi.className = 'modal-img ' + bgs[bi];
+  mi.innerHTML = `<span style="font-size:7rem;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.55))">${p.emoji}</span>`;
+  document.getElementById('modalOrigin').textContent = '✦ ' + p.origin;
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalNotes').innerHTML = p.notes.map(n => `<span class="note-tag">${n}</span>`).join('');
+  document.getElementById('modalPrice').textContent = p.price + ' €';
+  document.getElementById('modalBtn').onclick = () => { addToCart(id); document.getElementById('modal').classList.remove('open'); };
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'modal') document.getElementById('modal').classList.remove('open');
+}
+
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ ...p, qty: 1 });
+  updateCart();
+  showToast('✨ ' + p.name + ' ajouté au panier !');
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
+
+function updateCart() {
+  const badge = document.getElementById('cartBadge');
+  const total = cart.reduce((s, c) => s + c.qty, 0);
+  badge.textContent = total;
+  badge.style.display = total ? 'flex' : 'none';
+  const items = document.getElementById('cartItems');
+  const totalRow = document.getElementById('cartTotalRow');
+  if (cart.length === 0) {
+    items.innerHTML = '<div class="cart-empty"><span class="cart-empty-icon">🛒</span>Votre panier est vide<br><small style="font-size:12px;color:var(--text-muted);margin-top:8px;display:block">Découvrez nos produits ci-dessus</small></div>';
+    totalRow.style.display = 'none';
+  } else {
+    items.innerHTML = cart.map(c => `
+      <div class="cart-item">
+        <div class="cart-item-img">${c.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${c.name}</div>
+          <div class="cart-item-price">${c.price} € × ${c.qty} = ${c.price * c.qty} €</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${c.id})">✕</button>
+      </div>`).join('');
+    totalRow.style.display = 'block';
+    document.getElementById('cartTotalPrice').textContent = cart.reduce((s, c) => s + c.price * c.qty, 0) + ' €';
+  }
+}
+
+function toggleCart() {
+  document.getElementById('cartPanel').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+
+let toastTimer;
+function showToast(msg) {
+  clearTimeout(toastTimer);
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+// Init
+renderProducts('tous');
+updateCart();
+</script>
+</body>
+</html>
